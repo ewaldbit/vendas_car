@@ -418,13 +418,17 @@ footer p{
 /** Section Venda **/
 
 section.venda{
-	padding: 90px 0;
+	padding: 90px 140px;
 	min-height: 90%;
 }
 
 .content-venda{
 	margin-top: 40px;
 }
+
+/*.content-venda .container {
+	margin: 0 5px;
+}*/
 
 .sidebar {
 	float: left;
@@ -455,7 +459,7 @@ section.venda{
 	position: absolute;
 	left: 0;
 	top: 0;
-	width: 30%;
+	width: 0;
 	height: 20px;
 	border-radius: 20px;
 	background: linear-gradient(to bottom,rgb(255,255,255),rgb(190,190,190));
@@ -469,7 +473,7 @@ section.venda{
 	background: linear-gradient(to bottom,rgb(255,255,255),rgb(180,180,180));
 	border: 1px solid #777;
 	position: absolute;
-	left: calc(30% - 15px);
+	left: 0;
 	top: -8px;
 	cursor: pointer;
 }
