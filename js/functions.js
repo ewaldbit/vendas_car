@@ -1,4 +1,6 @@
 $(function(){
+
+	/* scroll de pesquisa carro por valor */
 	
 	var currentValue = 0;
 	var isDrag = false;
@@ -77,4 +79,69 @@ $(function(){
 		$('body').css("-o-user-select","auto");
 		$('body').css("user-select","auto");
 	}
+
+	/*
+	slide da página individual do carro
+	*/
+
+	var imgShow = 3;
+	//var miniIndex = imgShow - 1;
+	var maxIndex = Math.ceil($('.mini-img-wrapper').length/3) - 1;
+	var currentIndex = 0;
+
+	initSlider();
+	navigateSlider();
+	clickSlider();
+	function initSlider(){
+		var amt = $('.mini-img-wrapper').length * 33.3;
+		var elScroll = $('.nav-galeria-wrapper');
+		var elSingle = $('.mini-img-wrapper');
+		elScroll.css('width', amt+'%');
+		elSingle.css('width', 33.3*(100/amt)+'%');
+	}
+
+	function navigateSlider(){
+		$('.arrow-right-nav').click(function(){
+			if(currentIndex < maxIndex){
+				currentIndex++;
+				var elOff = $('.mini-img-wrapper').eq(currentIndex*3).offset().left - $('.nav-galeria-wrapper').offset().left;
+				$('.nav-galeria').animate({'scrollLeft':elOff+'px'});
+			}else {
+				console.log('Fim');
+			}
+		});
+		$('.arrow-left-nav').click(function(){
+			if(currentIndex > 0){
+				currentIndex--;
+				var elOff = $('.mini-img-wrapper').eq(currentIndex*3).offset().left - $('.nav-galeria-wrapper').offset().left;
+				$('.nav-galeria').animate({'scrollLeft':elOff+'px'});
+			}else {
+				console.log('Fim');
+			}
+		})
+	}
+
+
+	function clickSlider(){
+		$('.mini-img-wrapper').click(function(){
+			$('.mini-img-wrapper').css('background-color','transparent');
+			$(this).css('background-color','rgb(210,210,210)'); 
+			var img = $(this).children().css('background-image');
+			$('.foto-destaque').css('background-image',img);
+
+
+		})
+
+		$('.mini-img-wrapper').eq(0).click();
+	}
+
+
+	/* Ir para o formulário de contato através do menu */
+
+	$('[goto=contato]').click(function(){
+		$('html,body').animate({'scrollTop':$('#contato').offset().top});
+		return false; 
+	})
+
+
 })
