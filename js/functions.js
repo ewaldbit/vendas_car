@@ -159,5 +159,42 @@ $(function(){
 		}
 	}
 
+	/*
+		Navegação nos depoimentos da index.html
+	*/
 
+	var amtDepoimento = $('.depoimento-single blockquote').length;
+	var curIndex = 0;
+	iniciarDepoimentos();
+	navegarDepoimentos();
+
+	function iniciarDepoimentos(){
+		$('.depoimento-single blockquote').hide();
+		$('.depoimento-single blockquote').eq(0).show();
+		$('.nome-depoimento').hide();
+		$('.nome-depoimento').eq(0).show();
+	}
+
+
+
+	function navegarDepoimentos(){
+		$('[next]').click(function(){
+			curIndex++;
+			if(curIndex >= amtDepoimento)
+				curIndex = 0;
+			$('.depoimento-single blockquote').hide();
+			$('.depoimento-single blockquote').eq(curIndex).show();
+			$('.nome-depoimento').hide();
+			$('.nome-depoimento').eq(curIndex).show();
+		})
+		$('[prev]').click(function(){
+			curIndex--;
+			if(curIndex < 0)
+				curIndex = amtDepoimento-1;
+			$('.depoimento-single blockquote').hide();
+			$('.depoimento-single blockquote').eq(curIndex).show();
+			$('.nome-depoimento').hide();
+			$('.nome-depoimento').eq(curIndex).show();	
+		})
+	}
 })
