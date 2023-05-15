@@ -138,10 +138,9 @@ $(function(){
 
 	/* clicar a ir para a div de contato com base no atributo goto */
 
-	var directory = 'E:/Cursos/Webmaster Front End/vendas_car/'
+	var directory = '/'
 	$('[goto=contato]').click(function(){
 		location.href = directory+'index.html?contato';
-		// $('html,body').animate({'scrollTop':$('#contato').offset().top});
 		return false; 
 	})
 
