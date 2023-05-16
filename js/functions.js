@@ -138,7 +138,7 @@ $(function(){
 
 	/* clicar a ir para a div de contato com base no atributo goto */
 
-	var directory = '/ewaldbit/vendas_car'
+	var directory = '/ewaldbit/vendas_car/'
 	$('[goto=contato]').click(function(){
 		location.href = directory+'index.html?contato';
 		return false; 
